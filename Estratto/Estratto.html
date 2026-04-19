@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Estratto Cafe ☕</title>
+
+    <link rel="stylesheet" href="Estratto.css" />
+    <link rel="stylesheet" href="../header.css" />
+  </head>
+
+  <body>
+    <header class="main-header">
+      <h1>MAHAL</h1>
+      <nav>
+        <a href="../homepage.html">Home</a>
+        <a href="Memories.html">Memories</a>
+        <a href="../Occasions/Event.html">Events</a>
+        <a href="#">About Us</a>
+      </nav>
+    </header>
+    <!-- Title -->
+    <section class="events">
+      <h2>Estratto Cafe ☕</h2>
+      <p>Our cozy café moments together 💖</p>
+
+      <!-- Gallery -->
+      <div class="event-container">
+        <img src="img1.jpg" alt="Estratto 1" class="gallery-img clickable" />
+        <img src="img2.jpg" alt="Estratto 2" class="gallery-img clickable" />
+        <img src="img3.jpg" alt="Estratto 3" class="gallery-img clickable" />
+        <img src="img4.jpg" alt="Estratto 4" class="gallery-img clickable" />
+        <img src="img5.jpg" alt="Estratto 5" class="gallery-img clickable" />
+        <img src="img6.jpg" alt="Estratto 6" class="gallery-img clickable" />
+        <img src="img7.jpg" alt="Estratto 7" class="gallery-img clickable" />
+        <img src="img8.jpg" alt="Estratto 8" class="gallery-img clickable" />
+        <img src="img9.jpg" alt="Estratto 9" class="gallery-img clickable" />
+        <img src="img0.jpg" alt="Estratto 0" class="gallery-img clickable" />
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+      <span class="close">&times;</span>
+
+      <div class="slider">
+        <img id="modal-img" />
+      </div>
+
+      <div class="controls">
+        <button id="prev">&#10094;</button>
+        <button id="next">&#10095;</button>
+      </div>
+    </div>
+
+    <!-- Small local script fix for this page -->
+    <script>
+      const images = document.querySelectorAll(".clickable");
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modal-img");
+      const closeBtn = document.querySelector(".close");
+      const nextBtn = document.getElementById("next");
+      const prevBtn = document.getElementById("prev");
+
+      let currentIndex = 0;
+
+      function showImage(index) {
+        if (index < 0) index = images.length - 1;
+        if (index >= images.length) index = 0;
+
+        currentIndex = index;
+        modalImg.src = images[currentIndex].src;
+      }
+
+      images.forEach((img, index) => {
+        img.addEventListener("click", () => {
+          modal.style.display = "flex";
+          showImage(index);
+        });
+      });
+
+      nextBtn.addEventListener("click", () => {
+        showImage(currentIndex + 1);
+      });
+
+      prevBtn.addEventListener("click", () => {
+        showImage(currentIndex - 1);
+      });
+
+      closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+
+      /* ===== SWIPE SUPPORT (MOBILE) ===== */
+      let startX = 0;
+
+      modalImg.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+      });
+
+      modalImg.addEventListener("touchend", (e) => {
+        let endX = e.changedTouches[0].clientX;
+
+        if (startX > endX + 50) {
+          showImage(currentIndex + 1); // swipe left → next
+        } else if (startX < endX - 50) {
+          showImage(currentIndex - 1); // swipe right → prev
+        }
+      });
+    </script>
+  </body>
+</html>

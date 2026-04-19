@@ -10,18 +10,6 @@ body {
   color: #fff;
 }
 
-header {
-  background: #000;
-  padding: 15px 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header h1 {
-  color: #ff4d4d;
-}
-
 nav a {
   margin-left: 20px;
   text-decoration: none;
@@ -175,4 +163,52 @@ footer {
 
 #next {
   right: 20px;
+}
+
+/* ===== Base Button ===== */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #ff4d4d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+/* Hover effect */
+.btn:hover {
+  background: #e60000;
+  transform: scale(1.05);
+}
+
+/* ===== HEARTBEAT FLOATING EFFECT ===== */
+.heartbeat {
+  animation: float 3s ease-in-out infinite;
+}
+
+.heartbeat:hover {
+  animation: heartbeat 0.6s infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
