@@ -1,0 +1,173 @@
+/* ===== General Page Style ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: #fff;
+}
+
+/* ===== Top Bar ===== */
+.top-bar {
+  padding: 20px;
+}
+
+.btn {
+  text-decoration: none;
+  background: #ff4d4d;
+  padding: 10px 15px;
+  border-radius: 6px;
+  color: white;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #e60000;
+}
+
+/* ===== Title Section ===== */
+.events {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.events h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.events p {
+  color: #bbb;
+  margin-bottom: 30px;
+}
+
+/* ===== Gallery Grid ===== */
+.event-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  padding: 0 30px 50px;
+}
+
+.event-container img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.event-container img:hover {
+  transform: scale(1.05);
+  filter: brightness(0.9);
+}
+
+/* ===== Modal ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  display: block;
+  margin: auto;
+  margin-top: 60px;
+  max-width: 85%;
+  max-height: 80%;
+  border-radius: 10px;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+}
+/* Make images feel clickable */
+.clickable {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.clickable:hover {
+  transform: scale(1.05);
+  filter: brightness(0.85);
+}
+
+/* ===== MODAL ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center image */
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.slider img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  animation: fade 0.3s ease;
+}
+
+/* Fade animation */
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Navigation buttons */
+.controls button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+#prev {
+  left: 15px;
+}
+#next {
+  right: 15px;
+}
